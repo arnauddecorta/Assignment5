@@ -1,4 +1,6 @@
 #include<iostream>
+#include<model.h>
+#include<result.h>
 
 int main(int argc, char* argv[])
 {
