@@ -10,18 +10,21 @@ public:
     {
         std::string word ;
 
-        for (i, i<len(data), i++)
+        for (int i; i<data.size(); i++)
         {
             word=data[i, i+k];
-            FirstWord.add(word);
-
+            WordCount[word]++;
         }
 
+    }
+    Model(std::string data, std::string word)
+    {
+        
     }
 
 
 
 private: 
-        std::map<std::string, int > FirstWOrd;
+        std::map<std::string, int > WordCount;
         std::map<std::string, std::map<char, int>> Continuation;
 };
