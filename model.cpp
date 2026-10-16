@@ -1,30 +1,22 @@
-#include<model.h>
+#include "model.h"
 
 #include <string>
 #include<map>
 
-class Model
+
+Model::Model(std::string data,int k )
 {
-public:
-    Model (std::string data="",int k=0 )
+    std::string word ;
+    for (int i; i<data.size(); i++)
     {
-        std::string word ;
-
-        for (int i; i<data.size(); i++)
-        {
-            word=data[i, i+k];
-            WordCount[word]++;
-        }
-
+        word=data[i, i+k];
+        WordCount[word]++;
     }
-    Model(std::string data, std::string word)
-    {
-        
-    }
+}
 
-
-
-private: 
-        std::map<std::string, int > WordCount;
-        std::map<std::string, std::map<char, int>> Continuation;
-};
+Model::Model(std::string data, std::string word)
+{
+    //TO DO
+}
+std::map<std::string, int > WordCount;
+std::map<std::string, std::map<char, int>> Continuation;

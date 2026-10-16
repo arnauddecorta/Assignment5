@@ -6,6 +6,7 @@ class Model
 {
 public:
     Model (std::string data="",int k=0 );
+    Model (std::string data="", std::string word="");
 
 
 
