@@ -1,5 +1,4 @@
-#define MMODEL_H
-
+#define MODEL_H
 #include <string>
 #include<map>
 
@@ -11,6 +10,6 @@ public:
 
 
 private: 
-        std::map<std::string, int > FirstWOrd;
+        std::map<std::string, int > WordCount;
         std::map<std::string, std::map<char, int>> Continuation;
 };
