@@ -13,10 +13,14 @@ Model::Model(std::string data,int k )
         WordCount[word]++;
     }
 }
-
+std::map<std::string, int> Model::getWordCount()
+{
+    return WordCount;
+}
 Model::Model(std::string data, std::string word)
 {
     //TO DO
 }
+
 std::map<std::string, int > WordCount;
 std::map<std::string, std::map<char, int>> Continuation;
