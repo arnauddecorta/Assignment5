@@ -6,8 +6,7 @@
 
 Result::Result(Model data)
 {
-    std::cout << "Map size in Result: "
-              << data.getWordCount().size() << std::endl;
+
 
     int best_count = -1;
 
@@ -19,9 +18,6 @@ Result::Result(Model data)
             kword = element.first;
         }
     }
-
-    std::cout << "Best count: " << best_count << std::endl;
-    std::cout << "Kword in constructor: [" << kword << "]" << std::endl;
 }
 
 std::string Result::getWord()

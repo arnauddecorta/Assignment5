@@ -13,7 +13,6 @@ Model::Model(std::string data,int k )
         word = data.substr(i, k);
         WordCount[word]++;
     }
-    std::cout << "WordCount size: " << WordCount.size() << std::endl;
 }
 std::map<std::string, int> Model::getWordCount()
 {
@@ -21,8 +20,20 @@ std::map<std::string, int> Model::getWordCount()
 }
 Model::Model(std::string data, std::string word)
 {
-    //TO DO
+    for (std::size_t i = 0; i + word.size() < data.size(); i++)
+    {
+        if (data.substr(i, word.size()) == word)
+        {
+            char following = data[i + word.size()];
+            Continuation[following]++;
+        }
+    }
+}
+
+std::map<char, int> Model::getContinuation()
+{
+    return Continuation;
 }
 
 std::map<std::string, int > WordCount;
-std::map<std::string, std::map<char, int>> Continuation;
+std::map<char, int> Continuation;

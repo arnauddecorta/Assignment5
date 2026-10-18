@@ -6,7 +6,7 @@
 
 class Result{
 public:
-Result(std::string kword, Model data);
+Result(std::string kword, Model data, float alpha=0.0);
 
 Result(Model data);
 std::string getWord();
