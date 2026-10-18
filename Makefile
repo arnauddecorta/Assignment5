@@ -3,3 +3,6 @@
 
 slm : main.o model.o result.o
 	g++ -o slm $^
+
+clean:
+	rm -f *.o slm
