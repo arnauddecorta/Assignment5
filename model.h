@@ -1,3 +1,4 @@
+#ifndef MODEL_H
 #define MODEL_H
 #include <string>
 #include<map>
@@ -14,3 +15,5 @@ private:
         std::map<std::string, int > WordCount;
         std::map<std::string, std::map<char, int>> Continuation;
 };
+
+#endif
