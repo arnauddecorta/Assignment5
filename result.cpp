@@ -3,6 +3,8 @@
 #include<iostream>
 #include"model.h"
 #include"result.h"
+#include <random>  
+#include <vector> 
 
 Result::Result(Model data)
 {
@@ -34,38 +36,39 @@ Result::Result(std::string kword, Model data, float alpha)
     auto continuation = data.getContinuation();
 
     int total = 0;
-
     for (auto element : continuation)
     {
         total += element.second;
     }
 
-    float denominator = total + 27 * alpha;
-    float best_probability = -1.0;
-    if (denominator == 0)
+    if (total == 0 && alpha == 0.0)
     {
         following_letter = '\0';
         return;
     }
 
+    std::vector<char> characters;
+    std::vector<double> weights;
+
     for (char c = 'a'; c <= 'z'; c++)
     {
-        int count = continuation[c];
-        float probability = (count + alpha) / denominator;
-
-        if (probability > best_probability)
-        {
-            best_probability = probability;
-            following_letter = c;
-        }
+        characters.push_back(c);
+        weights.push_back(continuation[c] + alpha);
     }
 
-    int count = continuation[' '];
-    float probability = (count + alpha) / denominator;
+    characters.push_back(' ');
+    weights.push_back(continuation[' '] + alpha);
 
-    if (probability > best_probability)
-    {
-        following_letter = ' ';
-    }
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::discrete_distribution<> distribution(weights.begin(), weights.end());
+
+    following_letter = characters[distribution(gen)];
+}
+
+
+char Result::getFollowingLetter()
+{
+    return following_letter;
 }
 

@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     int l;
     if (argc==4)
     {
-        alpha=0.0
+        alpha=0.0;
         k = std::stoi(argv[1]);
         filename = argv[2];
         l= std::stoi(argv[3]);
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         k = std::stoi(argv[3]);
         filename = argv[4];
         l= std::stoi(argv[5]);
-        alpha=std::stof(argv[2])
+        alpha=std::stof(argv[2]);
         if (l<k)
         {
           std::cerr<< "Error, wanted output smaller than word size"<< "\n";
@@ -65,9 +65,29 @@ int main(int argc, char* argv[])
 
     Model model(data, k);
   
-
     Result result(model);
-    std::cout << result.getWord() << "\n";
+    
+    std::string word=result.getWord();
+    
+
+    while (word.size() < l)
+{
+        std::string kword = word.substr(word.size() - k, k);
+
+        Model continuation(data, kword);
+        Result next(kword, continuation, alpha);
+
+        char letter = next.getFollowingLetter();
+
+        if (letter == '\0')
+        {
+            break;
+        }
+
+    word += letter;
+}
+
+std::cout << word << "\n";
 
 
  
