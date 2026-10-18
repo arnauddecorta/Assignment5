@@ -2,16 +2,18 @@
 
 #include <string>
 #include<map>
+#include<iostream>
 
 
 Model::Model(std::string data,int k )
 {
     std::string word ;
-    for (int i; i<data.size(); i++)
+    for (int i=0; i<data.size()-k; i++)
     {
-        word=data[i, i+k];
+        word = data.substr(i, k);
         WordCount[word]++;
     }
+    std::cout << "WordCount size: " << WordCount.size() << std::endl;
 }
 std::map<std::string, int> Model::getWordCount()
 {

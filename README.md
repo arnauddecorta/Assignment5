@@ -1,8 +1,7 @@
-CODE IS NOT READY FOR EXECUTION YET
 
 Compilation : 
 
-The file compile to slm executable, with a make instruction (not completely supported yet, awaiting the second class implementation)
+The file compile to slm executable, with a make instruction
 
 
 Usage : 
@@ -15,5 +14,7 @@ It can also be called with the option -a (before any argument), with an addition
 
 Result: 
 
-For now, it only checks that the number of argument given is correct. 
+It gives out the most probable word of lenght k. 
+
+Waiting for the implementation of the generation of the letters that come after. 
 
