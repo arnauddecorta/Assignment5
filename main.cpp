@@ -18,11 +18,13 @@ int main(int argc, char* argv[])
         std::cerr<< "Unsupported option"<< "\n";
         return 1;
     }
+    float alpha;
     int k;
     std::string filename;
     int l;
     if (argc==4)
     {
+        alpha=0.0
         k = std::stoi(argv[1]);
         filename = argv[2];
         l= std::stoi(argv[3]);
@@ -37,6 +39,7 @@ int main(int argc, char* argv[])
         k = std::stoi(argv[3]);
         filename = argv[4];
         l= std::stoi(argv[5]);
+        alpha=std::stof(argv[2])
         if (l<k)
         {
           std::cerr<< "Error, wanted output smaller than word size"<< "\n";
